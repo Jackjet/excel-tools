@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>indi.qiaolin</groupId>
+	<artifactId>excel-tools</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>excel tools</name>
+	<description>Excel import and export tools</description>
+	<url>https://github.com/liqiaolin520/Poi-ExcelHelper</url>
+
+	<licenses>
+		<license>
+			<name>The MIT License (MIT)</name>
+			<url>https://github.com/liqiaolin520/Poi-ExcelHelper/blob/master/LICENSE</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>qiaolin</name>
+			<email>992004863@qq.com</email>
+		</developer>
+	</developers>
+
+	<!-- 自定义标签定义版本统一,以免发生版本不统一抛出的各种错误。 -->
+	<properties>
+		<!-- 源代码编译编码 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- log4j日志 -->
+		<log4j.version>1.2.17</log4j.version>
+		<!-- slf4j -->
+		<slf4j.version>1.7.22</slf4j.version>
+		<!-- Junit单元测试 -->
+		<junit.version>4.12</junit.version>
+		<!-- Poi导入导出 -->
+		<poi.version>3.15</poi.version>
+		<!-- 减少代码冗余插件 -->
+		<lombok.version>1.16.16</lombok.version>
+	</properties>
+
+
+	<!-- 相关依赖 -->
+	<dependencies>
+		<!-- Junit 单元测试 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 日志相关 -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<!-- POI -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		
+		<!-- 解决代码冗余 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>excel-tools</finalName>
+		<plugins>
+			<!-- Compiler -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+         	<!-- 忽略测试的代码，不进行测试 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
